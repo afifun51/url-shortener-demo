@@ -57,6 +57,6 @@ sonarqube {
     property("sonar.projectKey", "url-shortener-demo")
     property("sonar.organization", "afifun51")
     property("sonar.host.url", "https://sonarcloud.io")
-    property("sonar.coverage.jacoco.xmlReportPaths", "$buildDir/reports/jacoco/test/jacocoTestReport.xml")
+    property("sonar.coverage.jacoco.xmlReportPaths", "${project.getProjectDir()}/build/reports/jacoco/test/jacocoTestReport.xml")
   }
 }
