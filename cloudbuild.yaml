@@ -1,11 +1,10 @@
 steps:
-  - name: 'openjdk:17-jdk-bullseye'
-    id: 'deploy'
+  - name: 'gcr.io/cloud-builders/gcloud'
     entrypoint: 'bash'
     args:
       - '-c'
       - |
-        ./gradlew --no-daemon :appengineDeploy
+        gcloud app deploy
 
 timeout: '1600s'
 options:
