@@ -1,3 +1,9 @@
+buildscript {
+  dependencies {
+    classpath 'com.google.cloud.tools:appengine-gradle-plugin:+'
+  }
+}
+
 plugins {
   id 'java'
   id 'org.springframework.boot' version '3.4.2'
@@ -20,6 +26,9 @@ configurations {
   }
 }
 
+apply plugin: 'war'                               // standard Web Archive plugin
+apply plugin: 'com.google.cloud.tools.appengine'  // App Engine tasks
+
 repositories {
   mavenCentral()
 }
@@ -38,4 +47,11 @@ dependencies {
 
 tasks.named('test') {
   useJUnitPlatform()
+}
+
+appengine {
+  deploy {
+    projectId = "GCLOUD_CONFIG"
+    version = "GCLOUD_CONFIG"
+  }
 }
