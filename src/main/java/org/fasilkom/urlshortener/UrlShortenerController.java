@@ -14,7 +14,6 @@ import java.util.Map;
 import java.util.UUID;
 
 
-@CrossOrigin(maxAge = 3600)
 @RestController
 @RequestMapping("/api")
 class UrlShortenerController {
