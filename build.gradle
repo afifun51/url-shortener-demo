@@ -3,6 +3,8 @@ plugins {
   id 'org.springframework.boot' version '3.4.2'
   id 'io.spring.dependency-management' version '1.1.7'
   id 'org.springdoc.openapi-gradle-plugin' version "1.9.0"
+  id "jacoco"
+  id "org.sonarqube" version "6.0.1.5171"
 }
 
 group = 'org.fasilkom'
@@ -38,4 +40,23 @@ dependencies {
 
 tasks.named('test') {
   useJUnitPlatform()
+}
+
+jacocoTestReport {
+  reports {
+    xml.required = true
+  }
+}
+
+plugins.withType(JacocoPlugin) {
+  tasks["test"].finalizedBy 'jacocoTestReport'
+}
+
+sonarqube {
+  properties {
+    property("sonar.projectKey", "url-shortener-demo")
+    property("sonar.organization", "afifun51")
+    property("sonar.host.url", "https://sonarcloud.io")
+    property("sonar.coverage.jacoco.xmlReportPaths", "${project.getProjectDir()}/build/reports/jacoco/test/jacocoTestReport.xml")
+  }
 }
