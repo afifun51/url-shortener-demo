@@ -51,10 +51,3 @@ jacocoTestReport {
 plugins.withType(JacocoPlugin) {
   tasks["test"].finalizedBy 'jacocoTestReport'
 }
-
-sonarqube {
-  properties {
-    property 'sonar.projectName', 'url-shortener-demo'
-    property 'sonar.projectKey', project.group + ':url-shortener-demo'
-  }
-}
