@@ -25,6 +25,8 @@ jobs:
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
+          ref: main
+          fetch-depth: 0  # Ensure all history is fetched
           java-version: '17'
           distribution: 'temurin'
 
