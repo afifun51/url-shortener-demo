@@ -54,7 +54,7 @@ plugins.withType(JacocoPlugin) {
 
 sonar {
   properties {
-    property("sonar.projectKey", "url-shortener-demo")
+    property("sonar.projectKey", "afifun51_url-shortener-demo")
     property("sonar.organization", "afifun51")
     property("sonar.login", System.getenv("SONAR_TOKEN"))
     property("sonar.host.url", "https://sonarcloud.io")
