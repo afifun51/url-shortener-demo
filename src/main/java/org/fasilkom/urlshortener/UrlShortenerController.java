@@ -29,6 +29,7 @@ class UrlShortenerController {
   @PostMapping("/shorten-custom")
   public Map<String, String> shortenUrlCustom(@RequestParam String longUrl, @RequestParam String custom) {
     urlStorage.put(custom, longUrl);
+    
     return Map.of("shortUrl", custom);
   }
 
