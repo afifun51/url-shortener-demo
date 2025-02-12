@@ -54,10 +54,9 @@ plugins.withType(JacocoPlugin) {
 
 sonar {
   properties {
-    property("sonar.projectKey", "url-shortener-demo")
+    property("sonar.projectKey", "afifun51_url-shortener-demo")
     property("sonar.organization", "afifun51")
-    property("sonar.login", System.getenv("SONAR_TOKEN"))
     property("sonar.host.url", "https://sonarcloud.io")
-    property("sonar.coverage.jacoco.xmlReportPaths", "${project.getProjectDir()}/build/reports/jacoco/test/jacocoTestReport.xml")
+    property("sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml")
   }
 }
