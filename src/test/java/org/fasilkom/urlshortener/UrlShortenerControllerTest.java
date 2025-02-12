@@ -22,7 +22,7 @@ public class UrlShortenerControllerTest {
     Map<String, String> shortenUrl = urlShortenerController.customShortenUrl("https://www.google.com", "abc");
 
     Assert.assertNotNull(shortenUrl);
-    Assert.assertEquals(shortenUrl.get("abc"), "https://www.google.com");
+    Assert.assertEquals(shortenUrl.get("shortUrl"), "abc");
   }
 
   @Test
