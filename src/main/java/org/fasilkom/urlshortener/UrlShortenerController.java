@@ -22,6 +22,12 @@ class UrlShortenerController {
     urlStorage.put(shortUrl, longUrl);
     return Map.of("shortUrl", shortUrl);
   }
+
+  @PostMapping("/list-url")
+  public Map<String, String> shortenUrl(@RequestParam String longUrl) {
+    return urlStorage;
+  }
+  
 }
 
 @ResponseStatus(code = org.springframework.http.HttpStatus.NOT_FOUND)
