@@ -30,7 +30,7 @@ public class UrlShortenerControllerTest {
     UrlShortenerController urlShortenerController = new UrlShortenerController();
     urlShortenerController.customShortenUrl("https://www.google.com", "abc");
 
-    Map<String, String> shortenUrl = urlShortenerController.listUrl()
+    Map<String, String> shortenUrl = urlShortenerController.listUrl();
 
     Assert.assertNotNull(shortenUrl);
     Assert.assertEquals(shortenUrl.get("abc"), "https://www.google.com");
