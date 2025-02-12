@@ -18,33 +18,6 @@ import java.util.UUID;
 @RequestMapping("/api")
 class UrlShortenerController {
   private final Map<String, String> urlStorage = new HashMap<>();
-
-  @PostMapping("/shorten")
-  public Map<String, String> shortenUrl(@RequestParam String longUrl) {
-    String shortUrl = UUID.randomUUID().toString().substring(0, 8);
-    urlStorage.put(shortUrl, longUrl);
-    return Map.of("shortUrl", shortUrl);
-  }
-
-  @PostMapping("/shorten-custom")
-  public Map<String, String> shortenUrlCustom(@RequestParam String longUrl, @RequestParam String custom) {
-    urlStorage.put(custom, longUrl);
-    return Map.of("shortUrl", custom);
-  }
-
-  @PostMapping("/urls")
-  public Map<String, String> urls() {
-    return urlStorage;
-  }
-
-  @GetMapping("/{shortUrl}")
-  public Map<String, String> getOriginalUrl(@PathVariable String shortUrl) {
-    String longUrl = urlStorage.get(shortUrl);
-    if (longUrl == null) {
-      throw new UrlNotFoundException("Short URL not found");
-    }
-    return Map.of("longUrl", longUrl);
-  }
 }
 
 @ResponseStatus(code = org.springframework.http.HttpStatus.NOT_FOUND)
