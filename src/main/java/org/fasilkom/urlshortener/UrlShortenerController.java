@@ -30,7 +30,7 @@ class UrlShortenerController {
   }
 
   @PostMapping("/list-url")
-  public Map<String, String> listUrl(@RequestParam String longUrl) {
+  public Map<String, String> listUrl() {
     return urlStorage;
   }
   
