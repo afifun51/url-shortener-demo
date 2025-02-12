@@ -15,4 +15,24 @@ public class UrlShortenerControllerTest {
 
     Assert.assertNotNull(shortenUrl);
   }
+
+  @Test
+  public void testCustomShortenUrl() {
+    UrlShortenerController urlShortenerController = new UrlShortenerController();
+    Map<String, String> shortenUrl = urlShortenerController.customShortenUrl("https://www.google.com", "abc");
+
+    Assert.assertNotNull(shortenUrl);
+    Assert.assertEquals(shortenUrl.get("shortUrl"), "abc");
+  }
+
+  @Test
+  public void testListUrl() {
+    UrlShortenerController urlShortenerController = new UrlShortenerController();
+    urlShortenerController.customShortenUrl("https://www.google.com", "abc");
+
+    Map<String, String> shortenUrl = urlShortenerController.listUrl();
+
+    Assert.assertNotNull(shortenUrl);
+    Assert.assertEquals(shortenUrl.get("abc"), "https://www.google.com");
+  }
 }

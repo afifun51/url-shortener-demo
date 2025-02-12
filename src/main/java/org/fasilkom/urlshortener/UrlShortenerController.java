@@ -22,6 +22,18 @@ class UrlShortenerController {
     urlStorage.put(shortUrl, longUrl);
     return Map.of("shortUrl", shortUrl);
   }
+
+  @PostMapping("/shorten-custom")
+  public Map<String, String> customShortenUrl(@RequestParam String longUrl, @RequestParam String customUrl) {
+    urlStorage.put(customUrl, longUrl);
+    return Map.of("shortUrl", customUrl);
+  }
+
+  @PostMapping("/list-url")
+  public Map<String, String> listUrl() {
+    return urlStorage;
+  }
+  
 }
 
 @ResponseStatus(code = org.springframework.http.HttpStatus.NOT_FOUND)
